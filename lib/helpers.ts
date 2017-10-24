@@ -21,3 +21,11 @@ export function createTable(headers: string[], data: string[][]): any {
 export function stringifyWithIndentation(data: any, indentation?: string | number): string {
 	return JSON.stringify(data, null, indentation || "  ");
 }
+
+export function getProjectId(projectData: IProjectData, platform: string): string {
+	if (projectData.projectIdentifiers) {
+		return projectData.projectIdentifiers[platform];
+	}
+
+	return projectData.projectId;
+}
